@@ -1,5 +1,5 @@
 # opensearch_client.py
-from titan_embeddings import get_embedding
+from src.titan_embeddings import get_embedding
 from opensearchpy import OpenSearch, RequestsHttpConnection
 from requests_aws4auth import AWS4Auth
 import boto3
@@ -86,6 +86,24 @@ def index_text(index_name: str, doc_id: str, text: str, metadata: dict = None):
         embedding=embedding,
         metadata=metadata or {}
     )
+
+def index_chunk_objects(index_name: str, chunk_objects: list):
+    """
+    Index a list of chunk objects with embeddings into OpenSearch.
+    """
+    for chunk in chunk_objects:
+        metadata = {
+            "source": chunk.get("source"),
+            "chunk_index": chunk.get("chunk_index")
+        }
+        index_document(
+            index_name=index_name,
+            doc_id=chunk["chunk_id"],
+            text=chunk["text"],
+            embedding=chunk["embedding"],
+            metadata=metadata
+        )
+    client.indices.refresh(index=index_name)
 
 
 def search_vector(index_name: str, query_vector, k=3):
