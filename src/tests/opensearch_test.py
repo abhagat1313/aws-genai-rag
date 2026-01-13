@@ -1,4 +1,4 @@
-from opensearch_client import create_index, index_text, search_text
+from src.opensearch_client import create_index, index_text, search_text
 
 index_name = "my-docs"
 create_index(index_name)

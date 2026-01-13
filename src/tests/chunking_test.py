@@ -1,4 +1,4 @@
-from chunking import chunk_text
+from src.chunking import chunk_text
 
 text = (
     "AWS Bedrock is a fully managed service that provides access to foundation models. "

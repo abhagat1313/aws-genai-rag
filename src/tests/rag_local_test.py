@@ -1,6 +1,6 @@
-from chunking import chunk_text, create_chunk_objects
-from titan_embeddings import embed_chunk_objects, get_embedding
-from opensearch_client import create_index, index_chunk_objects, search_text
+from src.chunking import chunk_text, create_chunk_objects
+from src.titan_embeddings import embed_chunk_objects, get_embedding
+from src.opensearch_client import create_index, index_chunk_objects, search_text
 
 # ----------------------------
 # 1. Prepare Document

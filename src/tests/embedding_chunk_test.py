@@ -1,5 +1,5 @@
-from chunking import chunk_text, create_chunk_objects
-from titan_embeddings import embed_chunk_objects
+from src.chunking import chunk_text, create_chunk_objects
+from src.titan_embeddings import embed_chunk_objects
 
 text = (
     "AWS Bedrock is a fully managed service that provides access to foundation models. "

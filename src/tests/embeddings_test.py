@@ -1,6 +1,6 @@
 # src/embeddings_test.py
 
-from titan_embeddings import get_embedding
+from src.titan_embeddings import get_embedding
 
 vector = get_embedding("OpenSearch is a search engine")
 
