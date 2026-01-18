@@ -1,0 +1,8 @@
+
+services:
+  rag-api:
+    image: aws-genai-rag:week4
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env 

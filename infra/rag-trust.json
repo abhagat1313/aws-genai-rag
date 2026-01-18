@@ -1,0 +1,17 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "arn:aws:iam::12345678:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/C5941462337393E9D40D5F277F529C54"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringEquals": {
+          "oidc.eks.us-east-1.amazonaws.com/id/C5941462337393E9D40D5F277F529C54:sub": "system:serviceaccount:default:rag-api-sa"
+        }
+      }
+    }
+  ]
+}

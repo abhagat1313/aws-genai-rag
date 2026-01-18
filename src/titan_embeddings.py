@@ -1,15 +1,16 @@
 # src/titan_embeddings.py
 import boto3
 import json
+import os
 
 MODEL_ID = "amazon.titan-embed-text-v2:0"
-
+region = os.getenv("AWS_REGION", "us-east-1")
 def get_embedding(text: str) -> list[float]:
     """
     Generates an embedding vector for the given text using Titan Embeddings.
     """
 
-    bedrock = boto3.client("bedrock-runtime")
+    bedrock = boto3.client("bedrock-runtime", region_name=region)
 
     response = bedrock.invoke_model(
         modelId=MODEL_ID,
